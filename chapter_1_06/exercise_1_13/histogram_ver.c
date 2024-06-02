@@ -36,18 +36,19 @@ int main()
     }
 
     for (i = max_occurences; i > 0; --i) {
-        for (j = 0; j < MAX_WORD_LENGTH; ++j) {
+        for (j = 1; j < MAX_WORD_LENGTH; ++j) {
             if (i <= word_lengths[j]) {
                 printf("%3s", "#");
-            } else {
+            } else if (word_lengths[j] > 0) {
                 printf("%3s", "");
             }
         }
         printf("\n");
     }
 
-    for (i = 0; i < MAX_WORD_LENGTH; ++i) {
-        printf("%3d", i);
+    for (i = 1; i < MAX_WORD_LENGTH; ++i) {
+        if (word_lengths[i] > 0)
+            printf("%3d", i);
     }
     printf("\n");
 }
